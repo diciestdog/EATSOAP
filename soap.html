@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>follow Jack</title>
+	<style>
+		body {
+			background-color: black;
+			overflow: hidden;
+		}
+		.text {
+			position: absolute;
+			color: #00FF00; /* colore verde */
+			font-size: 20px;
+			animation: drop 1s linear infinite;
+		}
+		@keyframes drop {
+			from {top: -50px;}
+			to {top: 100vh;}
+		}
+	</style>
+</head>
+<body>
+	<script>
+		var phrases = ["eat soap", "don't consume", "eight", "45.70140", "9.30297"];
+		for (var i = 0; i < 100; i++) {
+			var text = document.createElement('div');
+			text.className = 'text';
+			var randomPhrase = phrases[Math.floor(Math.random() * phrases.length)]; // Sceglie casualmente una delle due frasi
+			text.innerText = randomPhrase;
+			text.style.left = Math.random() * window.innerWidth + 'px'; // Posiziona la frase in una posizione casuale sull'asse X
+			text.style.animationDelay = Math.random() * 2 + 's'; // Ritarda l'animazione di un tempo casuale
+			document.body.appendChild(text);
+		}
+	</script>
+</body>
+</html>
